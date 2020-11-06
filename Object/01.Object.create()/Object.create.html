@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.create()</title>
+</head>
+
+<body>
+    <script>
+        // 下面两种方法都只实现了 Object.create() 方法中只有一个参数的情况；
+        // 第二个可选参数，后面再考虑。
+
+        // 第一种
+        function create1(Fn) {
+            let obj = {};
+            obj.__proto__ = Fn;
+            return obj;
+        }
+
+        // 第二种
+        function create2(Fn) {
+            let F = function() {};
+            F.prototype = Fn;
+            return new F();
+        }
+
+        let obj1 = create1({
+            a: '第一个',
+            b: '第二个',
+            c: '第三个'
+        }, {
+            'c11': {
+                value: 'C11 方法'
+            },
+            'd22': {
+                value: 'D22方法'
+            }
+        });
+
+        let obj2 = create2({
+            a: '第一个',
+            b: '第二个',
+            c: '第三个'
+        }, {
+            'c11': {
+                value: 'C11 方法'
+            },
+            'd22': {
+                value: 'D22方法'
+            }
+        })
+
+        // 这是原生 Object.create() 方法
+        let obj3 = Object.create({
+            a: '第一个',
+            b: '第二个',
+            c: '第三个'
+        }, {
+            'c11': {
+                value: 'C11 方法'
+            },
+            'd22': {
+                value: 'D22方法'
+            }
+        })
+        console.log(obj1);
+        console.log(obj2);
+        console.log('----')
+        console.log(obj3);
+    </script>
+</body>
+
+</html>
