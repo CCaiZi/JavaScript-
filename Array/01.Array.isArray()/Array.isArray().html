@@ -8,12 +8,92 @@
 </head>
 
 <body>
-    <script>
+    <!-- 第一种思路 -->
+    <!-- <script>
         Array.MyIsArray = function(arr) {
             return Object.prototype.toString.call(Object(arr)) === '[object Array]';
         }
 
         // 测试 Number
+        let num1 = 99;
+
+        // 测试 String
+        let num2 = 'abcd';
+
+        // 测试 Boolean
+        let num3 = true;
+
+        // 测试 Undefined
+        let num4 = undefined;
+
+        // 测试 Null
+        let num5 = null;
+
+        // 测试 Symbol
+        let num6 = Symbol();
+
+        // 测试 Object
+        let num7 = {
+            a: 'aa',
+            b: "bb"
+        };
+
+        // 测试 Array
+        let num8 = [1, 2, 3];
+
+        // 测试 Function
+        let num9 = function() {};
+
+        // 测试 NaN
+        let num10 = NaN;
+
+
+        console.log(Array.MyIsArray(num1));
+        console.log(Array.isArray(num1));
+        console.log('--- 1 ---');
+
+        console.log(Array.MyIsArray(num2));
+        console.log(Array.isArray(num2));
+        console.log('--- 2 ---');
+
+        console.log(Array.MyIsArray(num3));
+        console.log(Array.isArray(num3));
+        console.log('--- 3 ---');
+
+        console.log(Array.MyIsArray(num4));
+        console.log(Array.isArray(num4));
+        console.log('--- 4 ---');
+
+        console.log(Array.MyIsArray(num5));
+        console.log(Array.isArray(num5));
+        console.log('--- 5 ---');
+
+        console.log(Array.MyIsArray(num6));
+        console.log(Array.isArray(num6));
+        console.log('--- 6 ---');
+
+        console.log(Array.MyIsArray(num7));
+        console.log(Array.isArray(num7));
+        console.log('--- 7 ---');
+
+        console.log(Array.MyIsArray(num8));
+        console.log(Array.isArray(num8));
+        console.log('--- 8 ---');
+
+        console.log(Array.MyIsArray(num9));
+        console.log(Array.isArray(num9));
+        console.log('--- 9 ---');
+
+        console.log(Array.MyIsArray(num10));
+        console.log(Array.isArray(num10));
+        console.log('--- 10 ---');
+    </script> -->
+
+    <!-- 第二种思路 -->
+    <script>
+        Array.MyIsArray = function(arr) {
+            return arr instanceof Array;
+        }
         let num1 = 99;
 
         // 测试 String
